@@ -3,7 +3,7 @@ games { 'gta5' }
 
 author 'Tiger (Discord: lets_tiger)'
 description 'Admin Script'
-version '1.0'
+version '1.1'
 
 lua54 'yes'
 

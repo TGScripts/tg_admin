@@ -19,18 +19,46 @@ Config.GodModeCommand       =   "godmode"                       -- Command um de
 Config.NameCommand          =   "names"                         -- Command um die Spieler Namen über Kopf anzuzeigen (Names)
 Config.BlipCommand          =   "blips"                         -- Command um alle Spieler Blips anzuzeigen
 Config.EnableClothing       =   true                            -- Admin Kleidung anziehen wenn man den Command benutzt aktivieren / deaktivieren
-Config.AdminClothing        =   {                               -- Konfiguration der Admin Kleidung
+Config.AdminClothing_M      =   {                               -- Konfiguration der Admin Kleidung (Männlich)
 
-    ['tshirt_1']    =   15,     -- T-Shirt 1
-    ['tshirt_2']    =   0,      -- T-Shirt 2 (Veriante)
-    ['torso_1']     =   15,     -- Oberteil 1
-    ['torso_2']     =   0,      -- Oberteil 2 (Veriante)
-    ['arms']        =   15,     -- Arme
-    ['pants_1']     =   61,     -- Hose 1
+    ['tshirt_1']    =   28,     -- T-Shirt 1
+    ['tshirt_2']    =   2,      -- T-Shirt 2 (Veriante)
+    ['torso_1']     =   72,     -- Oberteil 1
+    ['torso_2']     =   2,      -- Oberteil 2 (Veriante)
+    ['arms']        =   4,      -- Arme
+    ['pants_1']     =   25,     -- Hose 1
     ['pants_2']     =   0,      -- Hose 2 (Veriante)
-    ['shoes_1']     =   34,     -- Schuhe 1
+    ['shoes_1']     =   25,     -- Schuhe 1
     ['shoes_2']     =   0,      -- Schuhe 2 (Veriante)
+    ['mask_1']      =   2,      -- Maske 1
+    ['mask_2']      =   3,      -- Maske 2 (Veriante)
     ['helmet_1']    =   -1,     -- Helm 1
     ['helmet_2']    =   0,      -- Helm 2 (Veriante)
+    ['chain_1']     =   18,     -- Kette 1
+    ['chain_2']     =   0,      -- Kette 2 (Veriante)
+    ['glasses_1']   =   24,     -- Brille 1
+    ['glasses_2']   =   2,      -- Brille 2 (Veriante)
+
+}
+
+Config.AdminClothing_F      =   {                               -- Konfiguration der Admin Kleidung (Weiblich)
+
+    ['tshirt_1']    =   28,     -- T-Shirt 1
+    ['tshirt_2']    =   2,      -- T-Shirt 2 (Veriante)
+    ['torso_1']     =   169,    -- Oberteil 1
+    ['torso_2']     =   0,      -- Oberteil 2 (Veriante)
+    ['arms']        =   15,     -- Arme
+    ['pants_1']     =   12,     -- Hose 1
+    ['pants_2']     =   7,      -- Hose 2 (Veriante)
+    ['shoes_1']     =   8,      -- Schuhe 1
+    ['shoes_2']     =   3,      -- Schuhe 2 (Veriante)
+    ['mask_1']      =   2,      -- Maske 1
+    ['mask_2']      =   3,      -- Maske 2 (Veriante)
+    ['helmet_1']    =   -1,     -- Helm 1
+    ['helmet_2']    =   0,      -- Helm 2 (Veriante)
+    ['chain_1']     =   -1,     -- Kette 1
+    ['chain_2']     =   0,      -- Kette 2 (Veriante)
+    ['glasses_1']   =   24,     -- Brille 1
+    ['glasses_2']   =   2,      -- Brille 2 (Veriante)
 
 }

@@ -268,7 +268,11 @@ AddEventHandler("tg_admin:adminmode", function()
             if clothequipped == false then
                 clothequipped = true
                 ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-                    TriggerEvent('skinchanger:loadClothes', skin, Config.AdminClothing)
+                    if skin.sex == 0 then
+                        TriggerEvent('skinchanger:loadClothes', skin, Config.AdminClothing_M)
+                    else
+                        TriggerEvent('skinchanger:loadClothes', skin, Config.AdminClothing_F)
+                    end
                 end)
             end
         end
