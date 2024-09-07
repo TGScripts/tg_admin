@@ -181,7 +181,8 @@ RegisterCommand(Config.AdminCommand, function(source, args)
 
                 for _, AllowedGroup in ipairs(Config.AdminGroups) do
                     if playerGroup == AllowedGroup then
-                        TriggerClientEvent("tg_admin:adminmode", player)
+                        TriggerClientEvent("tg_admin:adminmode", _source)
+                        return
                     end
                 end
             end
@@ -214,7 +215,8 @@ if Config.EnableNames then
 
                     for _, AllowedGroup in ipairs(Config.AdminGroups) do
                         if playerGroup == AllowedGroup then
-                            TriggerClientEvent("tg_admin:names", player)
+                            TriggerClientEvent("tg_admin:names", _source)
+                            return
                         end
                     end
                 end
@@ -248,7 +250,8 @@ if Config.EnableBlips then
 
                     for _, AllowedGroup in ipairs(Config.AdminGroups) do
                         if playerGroup == AllowedGroup then
-                            TriggerClientEvent("tg_admin:blips", player)
+                            TriggerClientEvent("tg_admin:blips", _source)
+                            return
                         end
                     end
                 end
@@ -282,7 +285,8 @@ if Config.EnableGodMode then
 
                     for _, AllowedGroup in ipairs(Config.AdminGroups) do
                         if playerGroup == AllowedGroup then
-                            TriggerClientEvent("tg_admin:godmode", player)
+                            TriggerClientEvent("tg_admin:godmode", _source)
+                            return
                         end
                     end
                 end

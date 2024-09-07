@@ -1,7 +1,7 @@
 <p align="center">
     <hr>
         <p align="center">
-            <img src="https://cdn.discordapp.com/attachments/1138437086781902959/1254122906485788822/TG_Logo.png?ex=66d5f2f9&is=66d4a179&hm=c66cdc8f5cf5368dd670c22eb52b4b6d891726bf7f83b8334b59b1ea4f776190&" width="100" height="100"></img>
+            <img src="https://cdn.discordapp.com/attachments/1138437086781902959/1254122906485788822/TG_Logo.png?ex=66dd3339&is=66dbe1b9&hm=2dccd36192b252bf3a126e5d5b8603db4ebcd32ca99e0092f93d2bc224d1d89d&" width="100" height="100"></img>
         </p>
     <h1 align="center">
     TG SCRIPTS
