@@ -3,20 +3,24 @@ games { 'gta5' }
 
 author 'Tiger (Discord: lets_tiger)'
 description 'Admin Script'
-version '1.2'
+version '1.3.0'
 
 lua54 'yes'
 
 client_scripts {
-	'config.lua',
 	'client/main.lua'
 }
 
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
-	'config.lua',
 	'server/main.lua',
 	'server/version_check.lua'
+}
+
+shared_script {
+	'config.lua',
+	'locales.lua',
+	'locales/*.lua'
 }
 
 dependencies {

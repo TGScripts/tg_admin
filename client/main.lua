@@ -11,7 +11,7 @@ local blipsEnabled = false
 local clothequipped = false
 
 if Config.SupportEnabled then
-    RegisterKeyMapping(Config.MenuCommand, 'Öffne das Support/Ticket Menu', 'keyboard', Config.MenuDefaultKey)
+    RegisterKeyMapping(Config.MenuCommand, _('keymap_open_support'), 'keyboard', Config.MenuDefaultKey)
 
     RegisterCommand(Config.MenuCommand, function()
         TriggerServerEvent("tg_admin:requestOpenMenu")
@@ -54,7 +54,7 @@ function OpenAdminTicketsMenu()
             end
         end
 
-        table.insert(elements, {label = "Archivierte Tickets", name = "archived_tickets"})
+        table.insert(elements, {label = _('ticket_main_archieved'), name = "archived_tickets"})
 
         if ticketMenu then
             ticketMenu.close()
@@ -88,7 +88,7 @@ end
 function OpenArchivedTicketsMenu()
     ESX.TriggerServerCallback('tg_admin:getAdminTickets', function(tickets)
         local elements = {
-            {label = "Zurück zu offenen Tickets", name = "back_to_open_tickets"}
+            {label = _('ticket_second_back'), name = "back_to_open_tickets"}
         }
 
         for i=1, #tickets, 1 do
@@ -108,7 +108,7 @@ function OpenArchivedTicketsMenu()
         archivedMenu = ESX.UI.Menu.Open(
             'default', GetCurrentResourceName(), 'archived_tickets',
             {
-                title    = 'Archivierte Tickets',
+                title    = _('ticket_main_archieved'),
                 align    = 'top-left',
                 elements = elements
             },
@@ -130,22 +130,22 @@ end
 
 function OpenTicketDetailsMenu(ticket)
     local elements = {
-        {label = 'Spieler ID: ' .. ticket.PlayerID},
-        {label = 'Spieler Name: ' .. ticket.FivemName},
-        {label = 'Roleplay Name: ' .. ticket.IngameName},
+        {label = _('ticket_details_playerid') .. ticket.PlayerID},
+        {label = _('ticket_details_name') .. ticket.FivemName},
+        {label = _('ticket_details_rpname') .. ticket.IngameName},
         {label = ''},
-        {label = 'Ticket erstellt: ' .. ticket.created_at},
-        {label = 'Ticket Grund: ' .. ticket.reason},
+        {label = _('ticket_details_created_at') .. ticket.created_at},
+        {label = _('ticket_details_reason') .. ticket.reason},
         {label = ''},
-        {label = 'Ticket Status: ' .. ticket.status},
-        {label = 'Ticket übernehmen', value = 'claim_ticket'},
-        {label = 'Ticket freigeben', value = 'release_ticket'},
-        {label = 'Ticket schließen', value = 'close_ticket'},
+        {label = _('ticket_details_state') .. ticket.status},
+        {label = _('ticket_details_claim'), value = 'claim_ticket'},
+        {label = _('ticket_details_release'), value = 'release_ticket'},
+        {label = _('ticket_details_close'), value = 'close_ticket'},
         {label = ''},
-        {label = 'TP zu Ticket', value = 'tp_ticket'},
-        {label = 'WP zu Ticket', value = 'wp_ticket'},
-        {label = 'TP zu Spieler', value = 'tp_player'},
-        {label = 'WP zu Spieler', value = 'wp_player'}
+        {label = _('ticket_details_tp_to_ticket'), value = 'tp_ticket'},
+        {label = _('ticket_details_wp_to_ticket'), value = 'wp_ticket'},
+        {label = _('ticket_details_tp_to_player'), value = 'tp_player'},
+        {label = _('ticket_details_wp_to_player'), value = 'wp_player'}
     }
 
     ESX.UI.Menu.Open(
@@ -159,27 +159,27 @@ function OpenTicketDetailsMenu(ticket)
             if data.current.value == 'tp_ticket' then
                 local coords = json.decode(ticket.ticketcoords)
                 SetEntityCoords(PlayerPedId(), coords.x, coords.y, coords.z)
-                ESX.ShowNotification("Erfolgreich zum Ticket teleportiert!","success")
+                ESX.ShowNotification(_('notify_success_tp_ticket'),"success")
             elseif data.current.value == 'wp_ticket' then
                 local coords = json.decode(ticket.ticketcoords)
                 SetNewWaypoint(coords.x, coords.y)
-                ESX.ShowNotification("Erfolgreich einen Wegpunkt zum Ticket gesetzt!","success")
+                ESX.ShowNotification(_('notify_success_wp_ticket'),"success")
             elseif data.current.value == 'tp_player' then
                 ESX.TriggerServerCallback('tg_admin:getPlayerCoords', function(coords)
                     if coords then
                         SetEntityCoords(PlayerPedId(), coords.x, coords.y, coords.z)
-                        ESX.ShowNotification("Erfolgreich zum Ersteller des Tickets teleportiert!","success")
+                        ESX.ShowNotification(_('notify_success_tp_player'),"success")
                     else
-                        ESX.ShowNotification("Ticket Ersteller nicht gefunden.","error")
+                        ESX.ShowNotification(_('notify_error_player_404'),"error")
                     end
                 end, ticket.source)
             elseif data.current.value == 'wp_player' then
                 ESX.TriggerServerCallback('tg_admin:getPlayerCoords', function(coords)
                     if coords then
                         SetNewWaypoint(coords.x, coords.y)
-                        ESX.ShowNotification("Erfolgreich einen Wegpunkt zum Ersteller des Tickets gesetzt!","success")
+                        ESX.ShowNotification(_('notify_success_wp_player'),"success")
                     else
-                        ESX.ShowNotification("Ticket Ersteller nicht gefunden.","error")
+                        ESX.ShowNotification(_('notify_error_player_404'),"error")
                     end
                 end, ticket.source)
             elseif data.current.value == 'claim_ticket' then
@@ -208,14 +208,14 @@ function ClaimTicket(ticket)
     local newStatus = "claimed - " .. adminName
 
     TriggerServerEvent('tg_admin:updateTicketStatus', ticket.id, newStatus)
-    ESX.ShowNotification("[~r~tg_admin~s~ - ~b~Ticket Status~s~] Ticket ~b~" .. ticket.id .. "~s~ ~y~übernommen~s~.", "success")
+    ESX.ShowNotification("[~r~tg_admin~s~ - ~b~Ticket Status~s~] Ticket ~b~" .. ticket.id .. "~s~ ~y~".._('ticket_claimed').."~s~.", "success")
 end
 
 function ReleaseTicket(ticket)
     local newStatus = "open"
 
     TriggerServerEvent('tg_admin:updateTicketStatus', ticket.id, newStatus)
-    ESX.ShowNotification("[~r~tg_admin~s~ - ~b~Ticket Status~s~] Ticket ~b~" .. ticket.id .. "~s~ ~g~freigegeben~s~.", "success")
+    ESX.ShowNotification("[~r~tg_admin~s~ - ~b~Ticket Status~s~] Ticket ~b~" .. ticket.id .. "~s~ ~g~".._('ticket_released').."~s~.", "success")
 end
 
 function CloseTicket(ticket)
@@ -223,7 +223,7 @@ function CloseTicket(ticket)
     local newStatus = "closed - " .. adminName
 
     TriggerServerEvent('tg_admin:updateTicketStatus', ticket.id, newStatus)
-    ESX.ShowNotification("[~r~tg_admin~s~ - ~b~Ticket Status~s~] Ticket ~b~" .. ticket.id .. "~s~ ~r~geschlossen~s~.", "success")
+    ESX.ShowNotification("[~r~tg_admin~s~ - ~b~Ticket Status~s~] Ticket ~b~" .. ticket.id .. "~s~ ~r~".._('ticket_closed').."~s~.", "success")
 end
 
 RegisterNetEvent('tg_admin:ticketStatusUpdated')
@@ -241,7 +241,7 @@ end)
 
 RegisterNetEvent('tg_admin:ticketcreatednotify')
 AddEventHandler('tg_admin:ticketcreatednotify', function(ticketID)
-    ESX.ShowNotification("Ein neues ~b~Support Ticket~s~ mit der ID: ~g~"..ticketID.."~s~ wurde erstellt.", "error", 15000)
+    ESX.ShowNotification(_('notify_new_ticket'), "error", 15000)
 end)
 
 RegisterNetEvent("tg_admin:adminmode")
@@ -277,7 +277,7 @@ AddEventHandler("tg_admin:adminmode", function()
             end
         end
 
-        ESX.ShowNotification("Admin Modus ~g~aktiviert~s~.", "success")
+        ESX.ShowNotification(_('admin_activated'), "success")
     else
         adminMode = false
 
@@ -301,7 +301,7 @@ AddEventHandler("tg_admin:adminmode", function()
             clothequipped = false
         end
 
-        ESX.ShowNotification("Admin Modus ~r~deaktiviert~s~.", "success")
+        ESX.ShowNotification(_('admin_deactivated'), "success")
     end
 end)
 
@@ -310,10 +310,10 @@ AddEventHandler("tg_admin:names", function()
     if Config.EnableNames then
         if namesEnabled == false then
             namesEnabled = true
-            ESX.ShowNotification("Names ~g~aktiviert~s~.", "success")
+            ESX.ShowNotification(_('names_activated'), "success")
         else
             namesEnabled = false
-            ESX.ShowNotification("Names ~r~deaktiviert~s~.", "success")
+            ESX.ShowNotification(_('names_deactivated'), "success")
         end
     end
 end)
@@ -323,10 +323,10 @@ AddEventHandler("tg_admin:blips", function()
     if Config.EnableBlips then
         if blipsEnabled == false then
             blipsEnabled = true
-            ESX.ShowNotification("Blips ~g~aktiviert~s~.", "success")
+            ESX.ShowNotification(_('blips_activated'), "success")
         else
             blipsEnabled = false
-            ESX.ShowNotification("Blips ~r~deaktiviert~s~.", "success")
+            ESX.ShowNotification(_('blips_deactivated'), "success")
         end
     end
 end)
@@ -337,11 +337,11 @@ AddEventHandler("tg_admin:godmode", function()
         if godMode == false then
             godMode = true
             SetPlayerInvincible(PlayerId(), true)
-            ESX.ShowNotification("Godmode ~g~aktiviert~s~.", "success")
+            ESX.ShowNotification(_('godmode_activated'), "success")
         else
             godMode = false
             SetPlayerInvincible(PlayerId(), false)
-            ESX.ShowNotification("Godmode ~r~deaktiviert~s~.", "success")
+            ESX.ShowNotification(_('godmode_deactivated'), "success")
         end
     end
 end)

@@ -1,6 +1,7 @@
 Config = {}
 
 Config.Debug                =   false                           -- Debug Modus aktivieren / deaktivieren
+Config.Locale               =   'de'                            -- Sprache einstellen (Set Default Language)
 
 -- Ticketsystem
 Config.SupportEnabled       =   true                            -- Ingame Ticketsystem aktivieren / deaktivieren
@@ -19,6 +20,7 @@ Config.GodModeCommand       =   "godmode"                       -- Command um de
 Config.NameCommand          =   "names"                         -- Command um die Spieler Namen über Kopf anzuzeigen (Names)
 Config.BlipCommand          =   "blips"                         -- Command um alle Spieler Blips anzuzeigen
 Config.EnableClothing       =   true                            -- Admin Kleidung anziehen wenn man den Command benutzt aktivieren / deaktivieren
+
 Config.AdminClothing_M      =   {                               -- Konfiguration der Admin Kleidung (Männlich)
 
     ['tshirt_1']    =   28,     -- T-Shirt 1

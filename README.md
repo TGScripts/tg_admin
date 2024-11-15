@@ -1,7 +1,7 @@
 <p align="center">
     <hr>
         <p align="center">
-            <img src="https://cdn.discordapp.com/attachments/1138437086781902959/1254122906485788822/TG_Logo.png?ex=66dd3339&is=66dbe1b9&hm=2dccd36192b252bf3a126e5d5b8603db4ebcd32ca99e0092f93d2bc224d1d89d&" width="100" height="100"></img>
+            <img src="https://cdn.discordapp.com/attachments/1138437086781902959/1254122906485788822/TG_Logo.png?ex=67382ab9&is=6736d939&hm=a8966d5422dbb22cfefcc99821f2ceeb145e103f0933af05f1670ca1ec836c2e&" width="100" height="100"></img>
         </p>
     <h1 align="center">
     TG SCRIPTS
@@ -17,9 +17,9 @@
 </p>
 
 ![Discord](https://img.shields.io/discord/1101900001392721931?label=Discord%20Server) 
-![Release Date](https://img.shields.io/github/release-date/LetsTiger/tg_admin?label=Last%20Release%20Date) 
-![Release](https://img.shields.io/github/v/release/LetsTiger/tg_admin?label=Last%20Release%20(Download%20below)) 
-![Downloads (all assets, all releases)](https://img.shields.io/github/downloads/LetsTiger/tg_admin/total?label=Downloads)
+![Release Date](https://img.shields.io/github/release-date/TGScripts/tg_admin?label=Last%20Release%20Date) 
+![Release](https://img.shields.io/github/v/release/TGScripts/tg_admin?label=Last%20Release%20(Download%20below)) 
+![Downloads (all assets, all releases)](https://img.shields.io/github/downloads/TGScripts/tg_admin/total?label=Downloads)
 
 ---
 > [!CAUTION]
@@ -58,7 +58,7 @@
 <hr>
 
 ## Download
-[![Latest Release](https://img.shields.io/github/v/release/LetsTiger/tg_admin?label=latest)](https://github.com/LetsTiger/tg_admin/releases/latest)
+[![Latest Release](https://img.shields.io/github/v/release/TGScripts/tg_admin?label=latest)](https://github.com/TGScripts/tg_admin/releases/latest)
 
 <hr>
 
