@@ -1,7 +1,7 @@
 <p align="center">
     <hr>
         <p align="center">
-            <img src="https://cdn.discordapp.com/attachments/1138437086781902959/1254122906485788822/TG_Logo.png?ex=67382ab9&is=6736d939&hm=a8966d5422dbb22cfefcc99821f2ceeb145e103f0933af05f1670ca1ec836c2e&" width="100" height="100"></img>
+            <img src="https://avatars.githubusercontent.com/u/180347510?s=200&v=4" width="100" height="100"></img>
         </p>
     <h1 align="center">
     TG SCRIPTS
@@ -9,9 +9,7 @@
     <h4 align="center">
     <b>TG Scripts auf Discord: </b><a href="https://discord.gg/X2zxGxY6XY"><img src="https://discordapp.com/api/guilds/1101900001392721931/widget.png?style=shield"></img></a>
     <br/>
-    <b>TG Scripts Dokumentation: </b>COMING SOON
-    <br/>
-    <b>TG Scripts Website: </b>COMING SOON
+    <b>TG Scripts Dokumentation: </b><a href="https://tg-scripts.gitbook.io/tg-docs">TG Docs</a>
     </h4>
     <hr>
 </p>
@@ -35,7 +33,7 @@
 
 > [!NOTE]
 > ## Features
-> **tg_admin** ist ein Admin Script für die ESX Version 1.9+. Es bietet viele Features welche in der config selbst umgestellt werden. Aktuell gibt es nur eine deutsche Version.
+> **tg_admin** ist ein Admin Script für die ESX Version 1.9+. Es bietet viele Features welche in der config selbst umgestellt werden.
 > Eine Liste der Main Features:
 >
 > ### Ticketsystem
